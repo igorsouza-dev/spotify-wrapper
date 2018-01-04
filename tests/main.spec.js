@@ -9,6 +9,15 @@ sinonStubPromise(sinon);
 global.fetch = require('node-fetch');
 
 describe('Spotify Wrapper', () => {
+  let fetchedStub;
+  let promise;
+  beforeEach(() => {
+    fetchedStub = sinon.stub(global, 'fetch');
+    promise = fetchedStub.returnsPromise();
+  });
+  afterEach(() => {
+    fetchedStub.restore();
+  });
   describe('smoke tests', () => {
     it('should exists the search method', () => {
       expect(search).to.exist;
@@ -27,15 +36,6 @@ describe('Spotify Wrapper', () => {
     });
   });
   describe('Generic Search', () => {
-    let fetchedStub;
-    let promise;
-    beforeEach( () => {
-      fetchedStub = sinon.stub(global, 'fetch');
-      promise = fetchedStub.returnsPromise();
-    });
-    afterEach( () => {
-      fetchedStub.restore();
-    });
     it('should call the fetch function', () => {
       const artists = search();
 
@@ -58,6 +58,16 @@ describe('Spotify Wrapper', () => {
       promise.resolves({ body: 'json' });
       const artists = search('Slipknot', 'artist');
       expect(artists.resolveValue).to.be.eql({ body: 'json' });
+    });
+  });
+  describe('Search Artists', () => {
+    it('should call fetch function', () => {
+      const artists = searchArtists('Incubus');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+    it('should call fetch to the correct url', () => {
+      const artists = searchArtists('Incubus');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=artist');
     });
   });
 });
