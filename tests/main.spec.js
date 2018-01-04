@@ -27,21 +27,37 @@ describe('Spotify Wrapper', () => {
     });
   });
   describe('Generic Search', () => {
+    let fetchedStub;
+    let promise;
+    beforeEach( () => {
+      fetchedStub = sinon.stub(global, 'fetch');
+      promise = fetchedStub.returnsPromise();
+    });
+    afterEach( () => {
+      fetchedStub.restore();
+    });
     it('should call the fetch function', () => {
-      const fetchedStub = sinon.stub(global, 'fetch');
       const artists = search();
 
       expect(fetchedStub).to.have.been.calledOnce;
-      fetchedStub.restore();
     });
     it('should call the correct url', () => {
-      const fetchedStub = sinon.stub(global, 'fetch');
+      context('passing one type', () => {
+        const artists = search('Slipknot', 'artist');
+        expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Slipknot&type=artist');
+
+        const album = search('Slipknot', 'album');
+        expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Slipknot&type=album');
+      });
+      context('passing more than one type', () => {
+        const artistsAndAlbuns = search('Slipknot', ['artist', 'album']);
+        expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Slipknot&type=artist,album');
+      });
+    });
+    it('should return the JSON data from the Promise', () => {
+      promise.resolves({ body: 'json' });
       const artists = search('Slipknot', 'artist');
-      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Slipknot&type=artist');
-
-      const album = search('Slipknot', 'album');
-      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Slipknot&type=album');
-
+      expect(artists.resolveValue).to.be.eql({ body: 'json' });
     });
   });
 });
