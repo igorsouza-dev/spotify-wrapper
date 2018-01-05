@@ -1,12 +1,14 @@
+import { API_URL } from './config';
+import { toJSON } from './utils';
+
 export const search = (query, type) =>
-  fetch(`https://api.spotify.com/v1/search?q=${query}&type=${type}`, {
+  fetch(`${API_URL}/search?q=${query}&type=${type}`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
       Authorization: 'Bearer 5d2889a8bf90488dae0c8cc1973ed2cd',
     },
-  })
-    .then(data => data.json());
+  }).then(toJSON);
 
 export const searchAlbums = query =>
   search(query, 'album');
