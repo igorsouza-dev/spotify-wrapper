@@ -70,4 +70,34 @@ describe('Spotify Wrapper', () => {
       expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=artist');
     });
   });
+  describe('Search Albums', () => {
+    it('should call fetch function', () => {
+      const albums = searchAlbums('Incubus');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+    it('should call fetch to the correct url', () => {
+      const albums = searchAlbums('Incubus');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=album');
+    });
+  });
+  describe('Search Tracks', () => {
+    it('should call fetch function', () => {
+      const tracks = searchTracks('Incubus');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+    it('should call fetch to the correct url', () => {
+      const tracks = searchTracks('Incubus');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=track');
+    });
+  });
+  describe('Search Playlists', () => {
+    it('should call fetch function', () => {
+      const playlists = searchPlaylists('Incubus');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+    it('should call fetch to the correct url', () => {
+      const playlists = searchPlaylists('Incubus');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=playlist');
+    });
+  });
 });

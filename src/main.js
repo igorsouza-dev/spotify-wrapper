@@ -1,10 +1,18 @@
 export const search = (query, type) =>
-  fetch(`https://api.spotify.com/v1/search?q=${query}&type=${type}`)
+  fetch(`https://api.spotify.com/v1/search?q=${query}&type=${type}`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      Authorization: 'Bearer 5d2889a8bf90488dae0c8cc1973ed2cd',
+    },
+  })
     .then(data => data.json());
 
 export const searchAlbums = query =>
-  fetch(`https://api.spotify.com/v1/search?q=${query}&type=album`);
-export const searchTracks = () => {};
+  search(query, 'album');
+export const searchTracks = query =>
+  search(query, 'track');
 export const searchArtists = query =>
-  fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist`);
-export const searchPlaylists = () => {};
+  search(query, 'artist');
+export const searchPlaylists = query =>
+  search(query, 'playlist');
