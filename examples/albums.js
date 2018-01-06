@@ -1,5 +1,4 @@
-import { searchAlbums } from '../src/main';
-console.log('fuck');
+import { searchAlbums } from '../src/search';
 
 global.fetch = require('node-fetch');
 
