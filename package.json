@@ -2,7 +2,7 @@
   "name": "spotify-wrapper",
   "version": "1.0.0",
   "description": "A wrapper to work with the Spotify API",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "clear": "rimraf lib",
     "create-lib": "./node_modules/.bin/babel --out-dir lib src",
@@ -20,6 +20,10 @@
     "test:coverage": "nyc npm test",
     "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
   },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "nyc": {
     "functions": 80,
     "lines": 80,
