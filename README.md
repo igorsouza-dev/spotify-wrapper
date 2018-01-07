@@ -1,8 +1,8 @@
 # Spotify Wrapper
 
-[![Build Status](https://travis-ci.org/havok1305/spotify-wrapper.svg?branch=master)](https://travis-ci.org/havok1305/spotify-wrapper)
+[![Build Status](https://travis-ci.org/havok1305/spotify-wrapper-ims.svg?branch=master)](https://travis-ci.org/havok1305/spotify-wrapper-ims)
 
-[![Coverage Status](https://coveralls.io/repos/github/havok1305/spotify-wrapper/badge.svg?branch=master)](https://coveralls.io/github/havok1305/spotify-wrapper?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/havok1305/spotify-wrapper-ims/badge.svg?branch=master)](https://coveralls.io/github/havok1305/spotify-wrapper-ims?branch=master)
 
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
@@ -21,7 +21,7 @@ This library depends on [fetch](https://fetch.spec.whatwg.org/) to make requests
 ## Installation
 
 ```sh
-$ npm install spotify-wrapper --save
+$ npm install spotify-wrapper-ims --save
 ```
 
 ## How to use
@@ -30,26 +30,26 @@ $ npm install spotify-wrapper --save
 
 ```js
 // to import a specific method
-import { method } from 'spotify-wrapper';
+import { method } from 'spotify-wrapper-ims';
 
 // to import everything
-import * as spotifyWrapper from 'spotify-wrapper';
+import * as spotifyWrapper from 'spotify-wrapper-ims';
 ```
 
 ### CommonJS
 
 ```js
-var spotifyWrapper = require('spotify-wrapper');
+var spotifyWrapper = require('spotify-wrapper-ims');
 ```
 
 ### UMD in Browser
 
 ```html
 <!-- to import non-minified version -->
-<script src="spotify-wrapper.umd.js"></script>
+<script src="spotify-wrapper-ims.umd.js"></script>
 
 <!-- to import minified version -->
-<script src="spotify-wrapper.umd.min.js"></script>
+<script src="spotify-wrapper-ims.umd.min.js"></script>
 ```
 
 After that the library will be available to the Global as `spotifyWrapper`. Follow an example:
@@ -234,7 +234,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 |:---------------------:|
 |  [Igor Martins](https://github.com/havok1305/)   |
 
-See also the list of [contributors](https://github.com/havok1305/spotify-wrapper/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/havok1305/spotify-wrapper-ims/contributors) who participated in this project.
 
 ## License
 

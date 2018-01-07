@@ -1,5 +1,5 @@
 {
-  "name": "spotify-wrapper",
+  "name": "spotify-wrapper-ims",
   "version": "1.0.0",
   "description": "A wrapper to work with the Spotify API",
   "main": "lib/index.js",
@@ -8,8 +8,8 @@
     "create-lib": "./node_modules/.bin/babel --out-dir lib src",
     "build": "npm run clear && npm run create-lib",
     "build:watch": "npm run clear && npm run create-lib -- --watch",
-    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
-    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper-ims.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper-ims.umd.min.js -p",
     "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
     "lint": "./node_modules/.bin/eslint src/*js",
     "babel-node": "./node_modules/.bin/babel-node",
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/havok1305/spotify-wrapper.git"
+    "url": "git+https://github.com/havok1305/spotify-wrapper-ims.git"
   },
   "keywords": [
     "js",
@@ -47,9 +47,9 @@
   "author": "Igor Martins <havok1305@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/havok1305/spotify-wrapper/issues"
+    "url": "https://github.com/havok1305/spotify-wrapper-ims/issues"
   },
-  "homepage": "https://github.com/havok1305/spotify-wrapper#readme",
+  "homepage": "https://github.com/havok1305/spotify-wrapper-ims#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
