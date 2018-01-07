@@ -10,7 +10,10 @@
   <div id="albums"></div>
   <script src="../dist/spotify-wrapper.umd.js"></script>
   <script>
-    const albums = spotifyWrapper.searchAlbums('Slipknot');
+    const spotify = new SpotifyWrapper({
+      token: 'BQB6Wa6PLthqHythjEGt2x7cTKoyQlt1ftvFD06eCikEDZc8eFHMafhNfIYUgO-OgUXpFMaXLUhSzFmeIaboUGbZAAxbncsyKuA61WQnrSdKRGQkjSEPBhT3l5o8ysIqw6vcFdgQIEnBIucw',
+    });
+    const albums = spotify.search.albums('Slipknot');
     const albumsEl = document.getElementById('albums');
     albums.then(data => {
       let markup;
